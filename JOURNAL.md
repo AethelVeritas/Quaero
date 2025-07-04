@@ -72,7 +72,7 @@ Okay did some more research and talked to some guys on the Discord, and turns ou
 
 
 ## 4/07/2025
-**Time Spent: 2h**
+**Time Spent: 3h 10m**
 ![image](https://github.com/user-attachments/assets/d33190a5-40e0-4882-b20b-125dcf3be896)
 
 
