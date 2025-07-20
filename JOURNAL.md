@@ -82,9 +82,11 @@ Redid the board routing. I used 15.75 mils trace width for the power, and even t
 ![image](https://github.com/user-attachments/assets/39573001-8410-4e5c-b746-d298d3ed305b)
 I've also started messing around with ground fills, but I have absolutely no idea what I'm doing. DRC error check says something about thermal relief, so I'll have to check that in the future.
 
-## 16/07/2025
+## 20/07/2025
 **Time Spent: 3h 10m**
 
 *Quick Tip:* If you want to be able to draw traces at any angle whatsoever, go to Route -> Interactive Router Settings and there enable "Highlight Collisions" and under the latter "Free Angle Routing". 
 
-
+Currently struggling with figuring out how to embedd screenshots directly in nano. 
+Seeing as I'm on vacation and pressed for time, I've decided that I won't be trying to make it wireless compatible: I'm biting off more than I can chew. I'll just finish this one, and then if this turns out well I can try and make another wireless version. Breakaway number row + trackpad should be enough for my first pcb keeb. On another note, here's where I'm currently at (before giving up the wireless idea):
+![image](ics/pic\ 1.png)
