@@ -89,4 +89,4 @@ I've also started messing around with ground fills, but I have absolutely no ide
 
 Currently struggling with figuring out how to embedd screenshots directly in nano. 
 Seeing as I'm on vacation and pressed for time, I've decided that I won't be trying to make it wireless compatible: I'm biting off more than I can chew. I'll just finish this one, and then if this turns out well I can try and make another wireless version. Breakaway number row + trackpad should be enough for my first pcb keeb. On another note, here's where I'm currently at (before giving up the wireless idea):
-![image](ics/pic\ 1.png)
+![image](pics/pic\ 1.png)
