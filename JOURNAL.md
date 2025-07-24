@@ -83,10 +83,25 @@ Redid the board routing. I used 15.75 mils trace width for the power, and even t
 I've also started messing around with ground fills, but I have absolutely no idea what I'm doing. DRC error check says something about thermal relief, so I'll have to check that in the future.
 
 ## 20/07/2025
-**Time Spent: 3h 10m**
-
+**Time Spent: 2h**
+Figured out how to embed images in my JOURNAL.md file, as now that I'm using nano for journaling I can't really copy-paste screenshots as I've done through the Github GUI. This took some time (as I'm new to git), so I have like 3-4 test commits just to see that the embed path is working. 
+*Adding images your journal without using the github GUI:* Create a folder called "pics" (or whatever), add your screenshots there (don't be stupid and make your life harder by adding a space in the file name as I did lol), and then whenever you want to embed a picture into your journal you can just use "![image](<path to file>, eg pics/pic_1.png". If you want to keep a consistent size for all your images or a custom size for some of them, you can use html:" <img src="pics/pic1.png" alt="PCB Layout" width="400" height=">".
 *Quick Tip:* If you want to be able to draw traces at any angle whatsoever, go to Route -> Interactive Router Settings and there enable "Highlight Collisions" and under the latter "Free Angle Routing". 
 
-Currently struggling with figuring out how to embedd screenshots directly in nano. 
 Seeing as I'm on vacation and pressed for time, I've decided that I won't be trying to make it wireless compatible: I'm biting off more than I can chew. I'll just finish this one, and then if this turns out well I can try and make another wireless version. Breakaway number row + trackpad should be enough for my first pcb keeb. On another note, here's where I'm currently at (before giving up the wireless idea):
-![image](pics/pic_1.png)
+![image](pics/pic_1.png) 
+
+## 24/07/2025
+**Time Spent: **
+
+Still stuck at routing...it's a pain. I want to make it look neat, but at the same time I don't want to like waste a lot of time on making the routing symmetrical and everything when it's mostly not going to be seen. I keep looking at other boards for "ideas", but they are either extremely minimal and tidy or super cluttered, and a lot of them don't have splay as I do, which leads to the routing be different. I'm currently routing the columns to the MCU (I've decided that I'll do all the main "rough routing" and then mess around with actually connecting the ends to the pins), and I just made a mistake (which I think) is pretty funny:
+![image](pics/pic_2.png)
+So when using the Gruvbox theme, the front traces are this copper/gold color and the back traces are grey. Now, This grey  is not very different from the white used for the silkscreen stuf of the footprints, and my rather tired eyes mistook the silkscreen outline of the key for a column haha...and now I was confused about why my via didn't seem to work. I might switch to Solarized for the theme tbh just because it's kind of hard to see stuff (too little contrast). 
+
+I'm switching the footprint and symbol for NRF52840 pro micro to the RP2040 pro micro, even though they are kind of compatible. Now that I have decided that I won't
+be trying to make it wireless compatible as well it would be pointless to use the footprint for the nrf52840, as I wouldn't be able to use it at all. Plus the RP2040
+Pro Micro has some more pins at the bottom which will make routing slightly easier. Though now that I think of it routing power traces will be harder because of those
+extra pins, so yeah I might have just made my life harder instead of easier. The footprint and symbol for the RP2040 Pro Micro is included in the ScottoKeebs library by the way. Ok scratch that I just realized that I can actually use a  [RP2040 Zeros](https://www.aliexpress.com/item/1005006865919374.html?spm=a2g0o.order_list.order_list_main.5.22431802HWxVuf#nav-specification), which is both smaller and cheaper. Plus I already have one from Ali which works, so yeah. And damn I need to stop trying to perfect and optimize everything because I'm wasting quite a bunch of time on research and double-checking. Got the footprint for it from the ScottoKeeb library as well.
+
+Updated everything (footprints + schematic, and optimized the latter a bit), but now I'm facing a new issue: the RP2040 Zero is shorter, and I've routed my columns through the bottom part, and now I either have to redo them all through the middle or extend the traces upward, which is totally unecessary and messy. I'll do a commit before doing that though, just to be sure. 
+
