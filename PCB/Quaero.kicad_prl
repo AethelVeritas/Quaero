@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 25,
+    "active_layer": 0,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [
@@ -45,8 +45,8 @@
       "TX",
       "RX",
       "unconnected-(J1-CC1-PadA5)",
-      "unconnected-(J1-SBU1-PadA8)",
-      "unconnected-(J1-SBU2-PadB8)",
+      "unconnected-(J1-D+-PadA6)",
+      "unconnected-(J1-D+-PadB6)",
       "unconnected-(J1-CC2-PadB5)",
       "+3.3V",
       "LCol-1",
@@ -62,7 +62,9 @@
       "unconnected-(U1-5-Pad6)",
       "+5V",
       "SDA",
-      "SCL"
+      "SCL",
+      "unconnected-(J1-D--PadB7)",
+      "unconnected-(J1-D--PadA7)"
     ],
     "high_contrast_mode": 0,
     "net_color_mode": 1,

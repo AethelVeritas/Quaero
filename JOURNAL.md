@@ -5,6 +5,8 @@ description: "A sleek low-profile split keyboard featuring a touchpad module."
 created_at: "2025-06-22"
 --- 
 
+**Total Time Spent: 40h 40m**
+
 ## Retro Journaling 
 
 ### Similar Keyboards and Useful Resources
@@ -92,7 +94,7 @@ Seeing as I'm on vacation and pressed for time, I've decided that I won't be try
 ![image](pics/pic_1.png) 
 
 ## 24/07/2025
-**Time Spent: **
+**Time Spent: 5h 30m **
 
 Still stuck at routing...it's a pain. I want to make it look neat, but at the same time I don't want to like waste a lot of time on making the routing symmetrical and everything when it's mostly not going to be seen. I keep looking at other boards for "ideas", but they are either extremely minimal and tidy or super cluttered, and a lot of them don't have splay as I do, which leads to the routing be different. I'm currently routing the columns to the MCU (I've decided that I'll do all the main "rough routing" and then mess around with actually connecting the ends to the pins), and I just made a mistake (which I think) is pretty funny:
 ![image](pics/pic_2.png)
@@ -105,3 +107,6 @@ extra pins, so yeah I might have just made my life harder instead of easier. The
 
 Updated everything (footprints + schematic, and optimized the latter a bit), but now I'm facing a new issue: the RP2040 Zero is shorter, and I've routed my columns through the bottom part, and now I either have to redo them all through the middle or extend the traces upward, which is totally unecessary and messy. I'll do a commit before doing that though, just to be sure. 
 
+So I've spent a lot of time trying to figure out if what I'm doing with the USB C receptacle is correct. I asked in the KiCAD discord, and there they said that I should not put RX and TX to D+ and D-, but rather to SBU1 and SBU2. I don't know why, I'll have to look that up as well. I'm trying to figure out what I need for the OLED on the left side as well as the Cirque trackpad on the right to communicate properly with the MCU. I'll have to do some more research on I2C, and what I just saw on the QMK docs was worrisome (something to do with pullup resistors, which I do not understand yet): [split keyboard considerations](https://docs.qmk.fm/features/split_keyboard#considerations). 
+![image](pics/pic_4.png) 
+![image](pics/pic_5.png)
