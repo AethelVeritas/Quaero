@@ -132,7 +132,7 @@ I just realized I might not be able to make a plate because my layout isn't in K
 Today was mostly refining my routing and double-checking for errors. I also think I've succesfuly solved a very worrisome issue: because the key's are rotated (splay), if I  mirror the left half and then flip each key indvidually, the rotation is in the opposite direction, messing everything up. A solution is to flip each key in the footprint editor, and now I only have to find out how to apply that edit to a group of the same footprints at once and boom: problem solved! Here's where I'm currently at: ![image](pics/pic_6.png)
 
 ## 26/07/2025
-**Time Spent: **
+**Time Spent: 4h **
 
 *Quick Tip:* If you want to search for keyboards based on a certain filter, eg. using the RP2040 Zero (like I did: was looking for inspo regarding OLED and headers), then [yal's ergo keyboard list](https://yal-tools.github.io/ergo-keyboards/) is a great resource.
 
@@ -142,3 +142,8 @@ The outline was hell. I spent like an hour and something trying to make just by 
 ![image](pics/pic_9.png)
 ![image](pics/pic_10.png)
 ![image](pics/pic_11.png)
+
+## 27/07/2025
+**Time Spent: **
+
+
