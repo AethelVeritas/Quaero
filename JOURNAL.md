@@ -110,3 +110,35 @@ Updated everything (footprints + schematic, and optimized the latter a bit), but
 So I've spent a lot of time trying to figure out if what I'm doing with the USB C receptacle is correct. I asked in the KiCAD discord, and there they said that I should not put RX and TX to D+ and D-, but rather to SBU1 and SBU2. I don't know why, I'll have to look that up as well. I'm trying to figure out what I need for the OLED on the left side as well as the Cirque trackpad on the right to communicate properly with the MCU. I'll have to do some more research on I2C, and what I just saw on the QMK docs was worrisome (something to do with pullup resistors, which I do not understand yet): [split keyboard considerations](https://docs.qmk.fm/features/split_keyboard#considerations). 
 ![image](pics/pic_4.png) 
 ![image](pics/pic_5.png)
+
+
+## 25/07/2025
+**Time Spent: 3h 40m**
+
+Asked in the QMK discord, and it turns out that my worries were misfounded: if I have an OLED on both sides I don't need to use I2C to communicate between the 
+two halves for both to work, so that means I don't need to deal with the hassle of adding pullup resistors and all that. I initially thought that the slave 
+half would be the master to its own OLED and slave to the master half, which is wrong. Here's a diagram provided by a member of the Discord which made things 
+click for me:
+```
+OLED <=> I2C <=> MCU1 -----(split serial)----- MCU2 <=> I2C <=> OLED
+```
+
+Now I need to add the mounting holes, finish routing the left side, and then move on to the right side. I asked in the KiCAD Discord why people add mounting holes in their schematic instead of just adding the footprint directly to the PCB, and it seems that is because it's considered good practice to make sure that you add every component in your PCB to your schematic, as when cleaning things up later you might forget that a component which is not in the schematic is important and delete it. Plus, adding it your schematic allows you to connect the mounting pad to ground, which again is good practice. 
+
+I just realized that putting RX and TX on the SBU1 and SBU2 pins as the guys on the KiCAD discord suggested means that if the cable is not plugged in the right orientation the keyboard won't work. So I'll just go with the more unorthodox (from the "stick to the specs" viewpoint at least) approach and connect the two D- and two D+ into pairs and then like assign TX to the D+ pair and RX pair, as I had done initially.
+
+I just realized I might not be able to make a plate because my layout isn't in KLE/Ergogen, and after freaking out and despairing a bit I started scouring the internet for a solution. I could just  make the PCB black and not use a plate, and have a more open design (such as the Piantor for example), but I think that's rather unpolished, so tbh I don't really like that. After about 40m of research, I kind of gave up and asked on the Absolem Discord, where I got a response with a valid solution! Speaking of Discord, I do wish it had a better search engine incorporated or something. Here's what the solution "copy-paste pcb file, replace switch footprints with cutouts, remove all other components (didodes, mcu, etc)." I'll figure out how to do this tomorrow.
+
+Today was mostly refining my routing and double-checking for errors. I also think I've succesfuly solved a very worrisome issue: because the key's are rotated (splay), if I  mirror the left half and then flip each key indvidually, the rotation is in the opposite direction, messing everything up. A solution is to flip each key in the footprint editor, and now I only have to find out how to apply that edit to a group of the same footprints at once and boom: problem solved! Here's where I'm currently at: ![image](pics/pic_6.png)
+
+## 26/07/2025
+**Time Spent: **
+
+*Quick Tip:* If you want to search for keyboards based on a certain filter, eg. using the RP2040 Zero (like I did: was looking for inspo regarding OLED and headers), then [yal's ergo keyboard list](https://yal-tools.github.io/ergo-keyboards/) is a great resource.
+
+Most of today was struggling with the footprints and the outline. I found a model for the ks33 switch on GrabCAD, and then I had to find out how to update the whole board. Turns out in KiCAD you can't update a bunch of the same footprints at once: you can either do them one by one or you have to update the global footprint. So I updated the latter and then reloaded the app. I had issues with the footprints for the RP2040 Zero and the OLED as well: the 3D models were nowhere to be seen, even though the Scotto library had them. I assigned them manually, and then realized that the reason that they didn't show up was because when I downloaded the library I named the folder "SCOTTOKEEBS_KiCAD", using a lowercase "i" for the KiCAD instead of a capital "I" as in the original name of the folder. This caused automatic path to fail. Dumb error on my part, but well you live and you learn. I also had to re-position the 3D models for both the RP2040 and the OLED, as when importing them they were both offset. Messing with these two led me to realize that the OLED would be really high if I placed it above the RP2040 (which would be mounted with headers) as I had planned. I should have flipped it and found some other way to mount it. Might change that in the following days. 
+
+The outline was hell. I spent like an hour and something trying to make just by eye and changing the grid size in KiCAD, but eventually I gave up. I took a screenshot of the keyboard, imported it into Onshape, brought it up to scale, drew some construction lines on the top of the angled switch columns for reference, and then made the outline. I created a variable for the dimensions of the outline, which turned out to be very useful when I decided I wanted the distance between the edge of the switch footprints and the edge of the PCB to be 1.5 mm and not 1 mm. It was tedious, but not as much as it would have been had I persisted in trying to finish it in KiCAD. Had to do several iterations obviously. Oh and when exporting, Onshape sets the default units to "meters", not millimeters, so when importing the .dxf into KiCAD all I got was a small blob. Took me a while to figure that out. 
+![image](pics/pic_9.png)
+![image](pics/pic_10.png)
+![image](pics/pic_11.png)
