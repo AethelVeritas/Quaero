@@ -185,13 +185,17 @@ Onshape, brought it up to scale, drew some construction lines on the top of the 
 which turned out to be very useful when I decided I wanted the distance between the edge of the switch footprints and the edge of the PCB to be 1.5 mm and not 1 mm. It was tedious, but not as much as it 
 would have been had I persisted in trying to finish it in KiCAD. Had to do several iterations obviously. Oh and when exporting, Onshape sets the default units to "meters", not millimeters, so when 
 importing the .dxf into KiCAD all I got was a small blob. Took me a while to figure that out.
-![image](pics/pic_9.png) [image](pics/pic_10.png) [image](pics/pic_11.png)
+
+![image](pics/pic_9.png)
+![image](pics/pic_10.png)
+![image](pics/pic_11.png)
 ## 29/07/2025 
 **Time Spent: 3h**
 
 Turns out that when importing a .dxf, all the segments are grouped, so if you want to edit it inside KiCAD you need to either enter the group or ungroup them. I had made the USB-C cutout for the RP2040 in the footprint editor (if its flipped with standard headers the USB-C receptacle collides with the PCB underneath), and I could not for the life of me figure out how to "incorprate" said cutout with the existing outline on the Edge.Cuts layer. After finding out about the grouping thing I just mentioned, I messed around a bit and connected the cutout from the footprint to the outline, thus finally getting rid of that annoying "board outline malformed" error. This took abou an hour of head-bashing but at least now I know.
 
-Did some more refining on the traces (especially those around the MCU), and then moved on to figuring out how to add a ground fill. It seems that once you have a ruled edge/area outline  you have to press "B" to actually build the fill. After doing some more asking around in the KiCAD Discord, I found out that I need ground vias to connect the bottom and top ground layers. "Stiching vias" they are called. Here's where to place them, according to someone from said Discord "It's good practice to stick them next to other non-ground vias, around breaks in the ground plane on either side, in corners, along edges, at the ends of stubs, and then every so often in the middle of large patches." I just sprinkled some around the board to make sure there aren't any islands and that's that. I also had some errors regaring "thermal releif" and "min spokes connected to ground pads" or something like that for the USB-C mounting pads. 
+Did some more refining on the traces (especially those around the MCU), and then moved on to figuring out how to add a ground fill. It seems that once you have a ruled edge/area outline  you have to press "B" to actually build the fill. After doing some more asking around in the KiCAD Discord, I found out that I need ground vias to connect the bottom and top ground layers. "Stiching vias" they are called. Here's where to place them, according to someone from said Discord "It's good practice to stick them next to other non-ground vias, around breaks in the ground plane on either side, in corners, along edges, at the ends of stubs, and then every so often in the middle of large patches." I just sprinkled some around the board to make sure there aren't any islands and that's that. I also had some errors regaring "thermal relief" and "min spokes connected to ground pads" or something like that for the USB-C mounting pads. 
+
 ![image](pics/pic_14.png)
 ![image](pics/pic_15.png)
 
@@ -199,6 +203,7 @@ Did some more refining on the traces (especially those around the MCU), and then
 **Time Spent: 6h 40m **
 
 Today was all about going crazy trying to figure out how to mirror the damn thing. I initially thought I had found an easy way: copy the whole thing, flip it, and then just flip the indvidual components in footprint editor and then save. But, turns out not all components (USB-C, OLED, and MCU) were perfectly centered in the footprint editor, so flipping them there would result in a change in their original position. And flipping the switches inside the footprint editor obviously modified the footprint, but because it modifed the footprint itself and not the footprint as whole on the board the 3D models for the hotswap sockets and switches remained in their original position: that is, on the other side of the board. I then also messed around with the built-in "mirror", but that does not work on footprints for obvious reasons. Eventually, after many hours and asking around in multiple Discords, I figured out a workaround. First of all, I copied and flipped the left side, and then for each switch and diode I selected them, flipped, them, and rotated them by double the number of degrees of their original position. So if a switch was rotated by 7, after flipping I'd rotate it by 14, -3 by -6, and so on. For the OLED and USB-C and MCU this technique did not work, as in the footprint editor they were all too offset from their center. So for those I just copied each one, flipped it, rotated by however many degrees the original one was, manually placed it exactly on top of the original, and then  deleted the original from underneath. 
+
 ![image](pics/pic_13.png)
 ![image](pics/pic_12.png)
 
@@ -207,5 +212,6 @@ After that I manually reassigned the references for each component on the right 
 ## 31/07/2025
 **Time Spent: **
 Finished the routing, ground fill, and also cleared up all the errors (had quite a few). 
+
 ![image](pics/pic_16.png)
 ![image](pics/pic_17.png)
