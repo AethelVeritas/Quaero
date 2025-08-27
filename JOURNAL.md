@@ -220,3 +220,10 @@ Finished the routing, ground fill, and also cleared up all the errors (had quite
 
 ![image](pics/pic_16.png)
 ![image](pics/pic_17.png)
+
+Panelized the boards by adding mousebites, using mousebite footprints from [this](https://github.com/madworm/Panelization.pretty/) repo. I struggled a bit with connecting the outline of the board properly with Edge.Cuts of the footprint, but I figured it out in the end.
+ 
+![image](pics/pic_18.png)
+![image](pics/pic_19.png)
+In retrospect, I should have first exported a .step of either the left or right halves to use as a reference when making the case, but I guess I'll just  slice the PCB in half in Onshape.
+
