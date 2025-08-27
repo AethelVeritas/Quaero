@@ -1,2 +1,3 @@
 # Quaero
-A sleek low-profile split keyboard with a touchpad module. 
+A low-profile split ergo keyboard, featuring splay, a removable column and number row, as well as potential trackpad support.
+![image](pics/pic_16.png)
