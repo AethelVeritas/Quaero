@@ -1,6 +1,11 @@
---- title: "Quaero" author: "AlwaysLearning on Slack" description: "A sleek low-profile split keyboard featuring a touchpad module." created_at: "2025-06-22" ---
+---
+Title: Quaero
+Author: AlwaysLearning on Slack
+Description: A low-profile split ergo keyboard, featuring splay, a removable column and number row, as well as potential trackpad support.
+Created On: 22/06/2025
+---
 
-**Total Time Spent: 40h 40m**
+**Total Time Spent: 42h 40m**
 
 ## Retro Journaling
 
@@ -210,7 +215,7 @@ Today was all about going crazy trying to figure out how to mirror the damn thin
 After that I manually reassigned the references for each component on the right side and then made schematic for the latter. I also started doing the routing. 
 
 ## 31/07/2025
-**Time Spent: **
+**Time Spent: 2h **
 Finished the routing, ground fill, and also cleared up all the errors (had quite a few). 
 
 ![image](pics/pic_16.png)
