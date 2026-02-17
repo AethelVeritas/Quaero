@@ -3,15 +3,8 @@
 
 # Quaero
 *"quaero" - Latin verb meaning "I seek", "I am looking"*  
-
-Initially designed with a Cirque trackpad in mind, this idea was unfortunately dropped due to budget changes.
-This was initially made for ![Highway](https://highway.hackclub.com), finished and submitted for ![Grounded](https://grounded.hackclub.com), and properly polished and physically finished for ![Reboot](https://reboot.hackclub.com). 
-
-<!-- Hack Club Badge -->
-<a href="https://grounded.hackclub.com/">
-  <img src="https://img.shields.io/badge/Hack_Club-Funded-ec3750?style=for-the-badge&logo=hackclub&logoColor=ec3750" alt="Funded by Hack Club" width="180"/>
-</a>
-
+As the name suggests, this is a keyboard designed to help the daily 'seeking' through the internet, making typing more efficient and comfortable.  
+  
 # Key Features
 - Uses low-profile affordable Gateron KS-33 switches  
 - PCB is compatible with an OLED and Cirque touchpad (with an I2C adapter)  
